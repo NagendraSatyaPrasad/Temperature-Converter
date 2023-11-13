@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      background-image: url('ice.jpg');
+      background-size: cover;
+    background-repeat: no-repeat; 
+            display: flex;
+      font-size: 1.06rem;  
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    #input {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="input">
+    <label for="celsius">Celsius:</label>
+    <input type="number" id="celsius">
+    <button onclick="convertTo('F')">Convert to Fahrenheit</button>
+    <button onclick="convertTo('K')">Convert to Kelvin</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    function convertTo(unit) {
+      var celsius = document.getElementById('celsius').value;
+      var convertedTemp;
+      if (unit === 'F') {
+        convertedTemp = (celsius * 9/5) + 32;
+        document.getElementById('output').innerHTML = celsius + " Celsius is " + convertedTemp + " Fahrenheit.";
+      } else if (unit === 'K') {
+        convertedTemp = parseFloat(celsius) + 273;
+        document.getElementById('output').innerHTML = celsius + " Celsius is " + convertedTemp + " Kelvin.";
+      }
+    }
+  </script>
+
+</body>
+</html>
